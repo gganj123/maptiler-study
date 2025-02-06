@@ -19,6 +19,10 @@ export default function Map() {
       center: [tokyo.lng, tokyo.lat],
       zoom: zoom,
     });
+
+    new maptilersdk.Marker({ color: "#FF0000" })
+      .setLngLat([139.7525, 35.6846])
+      .addTo(map.current);
   }, [tokyo.lng, tokyo.lat, zoom]);
 
   return (
