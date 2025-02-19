@@ -1,12 +1,12 @@
 import Navbar from "./components/navbar/navbar.jsx";
 import "./App.css";
-import Map from "./components/map/map.jsx";
+import MapContainer from "./components/map/MapContainer.jsx";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Map />
+      <MapContainer />
     </div>
   );
 }
