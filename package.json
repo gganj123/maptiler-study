@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@maptiler/3d": "^2.0.2",
     "@maptiler/sdk": "^3.0.1",
     "next": "15.1.7",
     "react": "^19.0.0",
