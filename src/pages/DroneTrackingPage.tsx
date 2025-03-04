@@ -43,7 +43,14 @@ export default function DroneTrackingPage() {
       ))}
       <Marker position={objectPosition} />
 
-      <Polygon3DObject />
+      <Polygon3DObject
+        longitude={126.978}
+        latitude={37.566}
+        altitude={400}
+        modelUrl="https://docs.maptiler.com/sdk-js/assets/34M_17/34M_17.gltf"
+        scale={5}
+        rotationSpeed={0.02}
+      />
     </Map>
   );
 }
