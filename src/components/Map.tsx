@@ -31,7 +31,7 @@ export default function Map({ children }) {
 
     map.current = new maptilersdk.Map({
       container: mapContainer.current,
-      style: maptilersdk.MapStyle.SATELLITE,
+      style: maptilersdk.MapStyle.STREETS,
       center: center,
       zoom: zoom,
       pitch: is3D ? 80 : 0,
