@@ -64,6 +64,27 @@ export default function Polygon3DObject({
         loader.load(modelUrl, (gltf) => {
           console.log('✅ 3D 모델 로드 성공:', gltf);
           this.model = gltf.scene;
+
+          // ✅ 드론 모델 회전 적용
+          this.model.rotation.x = Math.PI / 2;
+
+          // ✅ 원뿔 (레이더) 추가
+          const radarGeometry = new THREE.ConeGeometry(2, 5, 32); // (반지름, 높이, 세그먼트)
+          const radarMaterial = new THREE.MeshBasicMaterial({
+            color: 0x00ff00,
+            transparent: true,
+            opacity: 0.5,
+            wireframe: true,
+          });
+
+          const radarMesh = new THREE.Mesh(radarGeometry, radarMaterial);
+          radarMesh.rotation.x = Math.PI / 2;
+          // ✅ 원뿔 위치 조정 (드론 앞쪽에 배치)
+          radarMesh.position.set(0, 0, -2.5); // Z축 방향으로 이동 (드론 앞쪽)
+
+          // ✅ 드론 모델에 원뿔 추가
+          this.model.add(radarMesh);
+
           this.scene.add(this.model);
         });
 
@@ -82,9 +103,6 @@ export default function Polygon3DObject({
 
         // ✅ 오브젝트 회전 적용 (속도 조절 가능)
         this.model.rotation.y += rotationSpeed;
-        this.model.rotation.x += rotationSpeed;
-
-        this.model.rotation.z += rotationSpeed;
 
         const m = new THREE.Matrix4().fromArray(matrix as number[]);
         const l = new THREE.Matrix4()

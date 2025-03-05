@@ -46,10 +46,11 @@ export default function DroneTrackingPage() {
       <Polygon3DObject
         longitude={126.978}
         latitude={37.566}
-        altitude={400}
-        modelUrl="https://docs.maptiler.com/sdk-js/assets/34M_17/34M_17.gltf"
-        scale={5}
-        rotationSpeed={0.02}
+        altitude={100}
+        // modelUrl="https://docs.maptiler.com/sdk-js/assets/34M_17/34M_17.gltf"
+        modelUrl="/models/G21.glb"
+        scale={30}
+        rotationSpeed={0.05}
       />
     </Map>
   );
